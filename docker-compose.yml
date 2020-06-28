@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgresdb:
+    container_name: postgresdb
+    restart: always
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: demoUser
+      POSTGRES_PASSWORD: demoPassword
+      POSTGRES_DB: demoDB
+
+
+  ownerservice:
+    container_name: ownerService
+    image: ownerservice
+    ports:
+      - 8085:8085
+    environment:
+      DB_SERVER: postgresdb:5432
+      POSTGRES_DB: demoDB
+      POSTGRES_USER: demoUser
+      POSTGRES_PASSWORD: demoPassword
+      PORT: 8085
