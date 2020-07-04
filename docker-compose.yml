@@ -23,3 +23,15 @@ services:
       POSTGRES_USER: demoUser
       POSTGRES_PASSWORD: demoPassword
       PORT: 8085
+
+  petservice:
+    container_name: petService
+    image: petservice
+    ports:
+      - 8090:8090
+    environment:
+      DB_SERVER: postgresdb:5432
+      POSTGRES_DB: demoDB
+      POSTGRES_USER: demoUser
+      POSTGRES_PASSWORD: demoPassword
+      PORT: 8090

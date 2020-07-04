@@ -15,7 +15,7 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     String ownerName;
 
     public Owner(String ownerName) {
